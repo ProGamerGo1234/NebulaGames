@@ -141,3 +141,6 @@ let mySprite = sprites.create(img`
     `, SpriteKind.Player)
 controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
+let mySprite2 = sprites.create(assets.image`Enemy`, SpriteKind.Enemy)
+tiles.placeOnRandomTile(mySprite2, assets.tile`myTile0`)
+mySprite2.follow(mySprite, 50)
