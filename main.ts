@@ -1,3 +1,10 @@
+sprites.onOverlap(SpriteKind.Enemy, SpriteKind.Player, function (sprite, otherSprite) {
+    info.changeLifeBy(-1)
+    tiles.placeOnRandomTile(mySprite2, assets.tile`myTile0`)
+    tiles.placeOnRandomTile(Hi, assets.tile`myTile0`)
+})
+let Hi: Sprite = null
+let mySprite2: Sprite = null
 scene.setBackgroundImage(img`
     5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
     5555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555555
@@ -139,8 +146,12 @@ let mySprite = sprites.create(img`
     . . . . . f f f f f f . . . . . 
     . . . . . f f . . f f . . . . . 
     `, SpriteKind.Player)
+info.setLife(10)
 controller.moveSprite(mySprite)
 scene.cameraFollowSprite(mySprite)
-let mySprite2 = sprites.create(assets.image`Enemy`, SpriteKind.Enemy)
+mySprite2 = sprites.create(assets.image`Enemy`, SpriteKind.Enemy)
 tiles.placeOnRandomTile(mySprite2, assets.tile`myTile0`)
 mySprite2.follow(mySprite, 50)
+Hi = sprites.create(assets.image`Enemy`, SpriteKind.Enemy)
+tiles.placeOnRandomTile(Hi, assets.tile`myTile0`)
+Hi.follow(mySprite, 50)
